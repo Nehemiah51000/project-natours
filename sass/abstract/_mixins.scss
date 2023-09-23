@@ -1,0 +1,63 @@
+@mixin clearfix{
+    &::after{
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
+
+
+//Media queries 
+/*
+0-600              phone 
+600-900px          tablet potrait
+900-1200px         tablet landscape
+1200-1800px        normal styles work here 
+1800px and above    big desktop 
+*/
+  
+/*
+Breakpoint argument choices 
+-phone
+-tab_portrait
+-tab_landscape
+-Normal code 
+-Big_desktop
+*/
+
+
+@mixin respond($breakpoint){
+           @if $breakpoint == phone{
+            @media only screen and (max-width: 37.5em) {
+                @content;
+            }
+
+           }      //600px
+
+
+           @if $breakpoint == tab_portrait{
+            @media only screen and (max-width: 56.25em) {
+                @content;
+            }
+
+           }       //900px
+
+
+           @if $breakpoint ==tab_landscape{
+            @media only screen and (max-width: 75em) {
+                @content;
+            }
+
+           }      //1200px
+
+
+           @if $breakpoint == Big_desktop{
+            @media(min-width: 112.5em) {
+                @content;
+            }
+
+           }      //1800px
+
+
+}
+
