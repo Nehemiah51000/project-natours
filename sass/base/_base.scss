@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+
+}
+
+html {
+    //This defines what one rem is.
+    font-size: 62.5%; //1rem = 10px 10px/16px =62.5%
+
+    @include respond(tab_landscape){
+        font-size: 56.25%;//9ps 9/16=56.25%
+    }
+ 
+   
+    @include respond(tab_portrait){
+        font-size: 50%; // 8px 8/16=50%
+    }
+
+
+
+    @include respond(Big_desktop){
+        font-size: 75%;//1rem =12px 12/16=75%
+    }
+}
+
+body {
+ 
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab_portrait){
+       padding: 0;
+    }
+
+}
+
+::selection{
+
+    background-color: $color-primary;
+    color: $color-light;
+}
